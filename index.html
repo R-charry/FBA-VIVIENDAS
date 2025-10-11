@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FBA Viviendas - Tu Casa Premium Ya</title>
+    <title>FBA Viviendas - Prefabricadas de Alta Calidad en Córdoba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ==================================== */
+        /* 1. VARIABLES Y RESET */
+        /* ==================================== */
         :root {
-            --naranja: #ef9a36;
+            --naranja: #ef9a36; 
             --verde-principal: #68992f;
+            --verde-hover: #5a7a1e;
             --gris-texto: #666;
             --blanco: #fff;
+            --whatsapp-color: #25D366; 
+        }
+
+        html {
+            scroll-padding-top: 90px;
+            scroll-behavior: smooth;
         }
 
         * {
@@ -19,12 +31,20 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; 
             line-height: 1.6;
             color: #333;
         }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-        /* Header */
+        /* ==================================== */
+        /* 2. HEADER Y NAVEGACIÓN */
+        /* ==================================== */
         header {
             background: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -42,6 +62,7 @@
             align-items: center;
             padding: 1rem 2rem;
             gap: 2rem;
+            width: 100%;
         }
 
         .logo-section {
@@ -86,16 +107,18 @@
             text-decoration: none;
             color: #333;
             transition: color 0.3s;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            color: #6B8E23;
+            color: var(--verde-principal);
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            padding: 5px;
         }
 
         .menu-toggle span {
@@ -103,24 +126,38 @@
             height: 3px;
             background: #333;
             margin: 3px 0;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
-        /* Hero Section - Background Responsive y Transparente */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* ==================================== */
+        /* 3. HERO Y CTA */
+        /* ==================================== */
+        
         .hero {
-            position: relative; /* Para pseudo-elementos */
-            margin-top: 80px; /* Altura del header fijo */
+            position: relative;
+            margin-top: 80px;
             color: white;
             padding: 6rem 2rem;
             text-align: center;
-            min-height: 100vh; /* Full viewport en desktop */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Evita desbordes */
+            overflow: hidden;
         }
-
 
         .hero::before {
             content: '';
@@ -133,19 +170,10 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.9; /* Opacidad solo para la imagen (ajusta: 0.4-0.8) */
+            opacity: 0.85; 
             z-index: 1;
         }
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Overlay opcional para mejor contraste */
+        
         .hero::after {
             content: '';
             position: absolute;
@@ -153,11 +181,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Tinte semi-transparente */
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 2;
         }
 
-        /* Contenido encima, sin opacidad */
         .hero > * {
             position: relative;
             z-index: 3;
@@ -165,38 +192,40 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejora legibilidad */
+            font-size: 3.5rem; 
+            margin-bottom: 0.5rem;
+            font-weight: 600; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
         }
 
-        .hero .highlight {
+        .hero .slogan-secondary {
             font-style: italic;
             color: var(--naranja);
-            font-size: 2.2rem;
+            font-size: 1.5rem; 
             display: block;
-            margin: 1.5rem 0;
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin: 1rem 0 1.5rem 0;
+            font-weight: 300;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.95;
             max-width: 600px;
         }
 
         .cta-button {
-            background: white;
-            color: #6B8E23;
+            background: var(--verde-principal);
+            color: var(--blanco);
             padding: 1rem 3rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             text-decoration: none;
             display: inline-block;
         }
@@ -204,21 +233,33 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: var(--verde-hover);
         }
 
-        /* Features Section */
+        /* ==================================== */
+        /* 4. FEATURES Y GALLERY */
+        /* ==================================== */
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--verde-principal);
+            font-weight: 300;
+        }
+
         .features {
             max-width: 1200px;
             margin: 4rem auto;
             padding: 2rem;
         }
 
-        .features h2 {
+        .features .intro-text {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--verde-principal);
-            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            color: var(--gris-texto);
+            font-size: 1.1rem;
         }
 
         .features-grid {
@@ -246,7 +287,7 @@
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: #6B8E23;
+            background: var(--verde-principal);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -254,6 +295,11 @@
             margin: 0 auto 1.5rem;
             font-size: 2rem;
             color: white;
+            transition: background 0.3s;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: var(--naranja); 
         }
 
         .feature-card h3 {
@@ -265,23 +311,15 @@
             color: var(--gris-texto);
         }
 
-        /* Gallery Section */
-        .gallery {
+        /* Estilo para las dos secciones de galería (Modelos y Entregas) */
+        .gallery, .recent-deliveries {
             background: #f9f9f9;
             padding: 4rem 2rem;
         }
 
-        .gallery h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--verde-principal);
-            font-weight: 300;
-        }
-
         .gallery-grid {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 3rem auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
@@ -309,15 +347,19 @@
             object-fit: cover;
             display: block;
         }
-
+        
         .gallery-item::after {
-            content: '';
+            content: attr(data-title);
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(104, 153, 47, 0.7));
+            padding: 1rem;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7));
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: left;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -326,19 +368,14 @@
             opacity: 1;
         }
 
-        /* Contact Section */
+        /* ==================================== */
+        /* 5. SECCIÓN CONTACTO */
+        /* ==================================== */
         .contact {
             max-width: 800px;
             margin: 4rem auto;
             padding: 2rem;
             text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--verde-principal);
-            font-weight: 300;
         }
 
         .contact p {
@@ -359,9 +396,9 @@
         .contact-form textarea {
             padding: 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
-            font-family: inherit;
+            font-family: 'Poppins', sans-serif;
         }
 
         .contact-form textarea {
@@ -370,32 +407,29 @@
         }
 
         .contact-form button {
-            background: #6B8E23;
-            color: white;
+            background: var(--verde-principal);
+            color: var(--blanco);
             padding: 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1.1rem;
             cursor: pointer;
             transition: background 0.3s;
+            font-weight: 600; 
         }
 
         .contact-form button:hover {
-            background: #5a7a1e;
+            background: var(--verde-hover);
         }
 
-        /* Location Section */
+
+        /* ==================================== */
+        /* 6. MAPA */
+        /* ==================================== */
         .location {
             background: #f9f9f9;
             padding: 4rem 2rem;
             text-align: center;
-        }
-
-        .location h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--verde-principal);
-            font-weight: 300;
         }
 
         .location-address {
@@ -418,26 +452,16 @@
             border: none;
         }
 
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        /* WhatsApp Button */
+        /* ==================================== */
+        /* 7. WHATSAPP BUTTON */
+        /* ==================================== */
         .whatsapp-button {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
-            background: #25D366;
+            background: #25D366; 
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -445,7 +469,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 1000;
+            z-index: 1000; 
             text-decoration: none;
         }
 
@@ -460,95 +484,49 @@
             fill: white;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .brand-text {
-                display: none;
-            }
-
-            .nav-links {
-                position: fixed; /* Fijo para no interferir con scroll */
-                top: 80px; /* Debajo del header */
-                left: -100%;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                padding: 2rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                transition: left 0.3s;
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            /* Hero responsive */
-            .hero {
-                min-height: 70vh; /* Menos altura en mobile para no abrumar */
-                padding: 4rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .highlight {
-                font-size: 1.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .features h2,
-            .gallery h2,
-            .contact h2,
-            .location h2 {
-                font-size: 2rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1rem;
-            }
-
-            .gallery-item {
-                height: 200px;
-            }
-
-            .map-container iframe {
-                height: 300px;
-            }
-
-            nav {
-                padding: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
+        /* ==================================== */
+        /* 8. FOOTER Y RESPONSIVE */
+        /* ==================================== */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
         }
 
-        /* Media query adicional para tablets */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .hero {
-                min-height: 80vh;
-            }
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-slogan {
+            font-style: italic;
+            color: var(--naranja); 
+            font-weight: 300;
+        }
 
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: fixed; top: 80px; left: -100%; flex-direction: column;
+                background: white; width: 100%; padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: left 0.3s; z-index: 999;
             }
+            .nav-links.active { left: 0; }
+            .hero { min-height: 70vh; padding: 4rem 1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero .slogan-secondary { font-size: 1.2rem; }
+            .features h2, .gallery h2, .contact h2, .location h2, .recent-deliveries h2 { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+            .gallery-item { height: 200px; }
+            .map-container iframe { height: 300px; }
+            nav { padding: 1rem; }
+            .cta-button { padding: 0.8rem 2rem; font-size: 1rem; }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero { min-height: 80vh; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -566,6 +544,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#entregas">Entregas</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -575,78 +554,108 @@
             </div>
         </nav>
     </header>
-
+<main>
     <section class="hero" id="inicio">
-        <h1>TU CASA PREMIUM YA</h1>
-        <p class="highlight">¡¡Lo crees, lo creas!!</p>
-        <p>Construimos viviendas prefabricadas de alta calidad, diseñadas con los mejores materiales para hacer realidad el hogar que siempre soñaste</p>
+        <h1>Construimos tu Vivienda Prefabricada de Alta Calidad en Córdoba.</h1>
+        <p class="slogan-secondary">¡¡Lo crees, lo creas!!</p>
+        <p>Diseños exclusivos, construcción eficiente y opciones de financiación flexibles. Empieza a construir tu futuro hoy.</p>
         <a href="#contacto" class="cta-button">Solicita una Cotización</a>
     </section>
 
     <section class="features" id="nosotros">
-        <h2>¿Por qué elegir FBA Viviendas?</h2>
+        <h2>Nuestra Promesa FBA</h2>
+        <p class="intro-text">
+            En FBA Viviendas, nos especializamos en hacer realidad el sueño de la casa propia con la máxima calidad y eficiencia. Con años de experiencia en Córdoba, garantizamos procesos transparentes y resultados que superan las expectativas.
+        </p>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon">🚀</div> 
                 <h3>Construcción Rápida</h3>
                 <p>Entregamos tu vivienda en tiempo récord sin comprometer la calidad</p>
             </div>
-           
+            
             <div class="feature-card">
-                <div class="feature-icon">🏆</div>
+                <div class="feature-icon">★</div> 
                 <h3>Calidad Premium</h3>
                 <p>Materiales de primera calidad y acabados impecables en cada detalle</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">💰</div>
+                <div class="feature-icon">💸</div> 
                 <h3>Financiación Disponible</h3>
                 <p>Opciones de pago flexibles para que tu casa sea una realidad hoy</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
+                <div class="feature-icon">✏️</div> 
                 <h3>Diseños Personalizados</h3>
                 <p>Adaptamos cada proyecto a tus necesidades y preferencias</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔧</div>
-                <h3>Mantenimiento Mínimo</h3>
-                <p>Construcción duradera que requiere poco mantenimiento a largo plazo</p>
+                <div class="feature-icon">🛡️</div> 
+                <h3>Larga Durabilidad</h3>
+                <p>Construcción robusta que minimiza el mantenimiento a largo plazo</p>
+            </div>
+             <div class="feature-card">
+                <div class="feature-icon">🌱</div> 
+                <h3>Eficiencia Energética</h3>
+                <p>Soluciones constructivas que ofrecen gran eficiencia y sostenibilidad</p>
             </div>
         </div>
     </section>
 
     <section class="gallery" id="modelos">
-        <h2>Nuestros Modelos</h2>
+        <h2>Galería de Modelos Exclusivos</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="img/casa1.jpg" alt="Modelo de vivienda 1">
+            <div class="gallery-item" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+                <img src="img/casa1.jpg" alt="Modelo de vivienda Estilo">
             </div>
-            <div class="gallery-item">
-                <img src="img/casa2.jpg" alt="Modelo de vivienda 2">
+            <div class="gallery-item" data-title="Sed do eiusmod tempor incididunt ut labore et dolore magna.">
+                <img src="img/casa2.jpg" alt="Modelo de vivienda Familiar">
             </div>
-            <div class="gallery-item">
-                <img src="img/casa3.jpg" alt="Modelo de vivienda 3">
+            <div class="gallery-item" data-title="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.">
+                <img src="img/casa3.jpg" alt="Modelo de vivienda Chalet">
             </div>
-            <div class="gallery-item">
-                <img src="img/casa4.jpg" alt="Modelo de vivienda 4">
+            <div class="gallery-item" data-title="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.">
+                <img src="img/casa4.jpg" alt="Modelo de vivienda Minimal">
             </div>
-            <div class="gallery-item">
-                <img src="img/casa5.jpg" alt="Modelo de vivienda 5">
+            <div class="gallery-item" data-title="Excepteur sint occaecat cupidatat non proident, sunt in culpa.">
+                <img src="img/casa5.jpg" alt="Modelo de vivienda Loft">
             </div>
-            <div class="gallery-item">
-                <img src="img/casa7.jpg" alt="Modelo de vivienda 6">
+            <div class="gallery-item" data-title="Qui officia deserunt mollit anim id est laborum.">
+                <img src="img/casa7.jpg" alt="Modelo de vivienda Patagonia">
             </div>
+        </div>
+    </section>
+
+    <section class="recent-deliveries" id="entregas">
+        <h2>Entregas Recientes</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-title="Entrega en Villa Allende (Marzo 2025).">
+                <img src="img/entrega1.jpg" alt="Entrega de vivienda en Villa Allende">
+            </div>
+            <div class="gallery-item" data-title="Finalizada en Carlos Paz (Febrero 2025).">
+                <img src="img/entrega2.jpg" alt="Entrega de vivienda en Carlos Paz">
+            </div>
+            <div class="gallery-item" data-title="Proyecto de 100m² en Alta Gracia.">
+                <img src="img/entrega3.jpg" alt="Entrega de vivienda en Alta Gracia">
+            </div>
+            <div class="gallery-item" data-title="Casa Modular en La Calera.">
+                <img src="img/entrega4.jpg" alt="Entrega de vivienda en La Calera">
+            </div>
+            <div class="gallery-item" data-title="Vivienda Premium en Mendiolaza.">
+                <img src="img/entrega5.jpg" alt="Entrega de vivienda en Mendiolaza">
+            </div>
+           
         </div>
     </section>
 
     <section class="contact" id="contacto">
         <h2>Conversemos sobre tu proyecto</h2>
-        <p>Déjanos tus datos y nos pondremos en contacto contigo lo antes posible</p>
+        <p>Déjanos tus datos y un asesor se pondrá en contacto contigo para cotizar tu casa premium.</p>
         <form class="contact-form" action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-            <input type="tel" name="telefono" placeholder="Teléfono" required>
-            <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
+            <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
+            <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+            <input type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" required>
+            <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto: metros, ubicación, etc." aria-label="Cuéntanos sobre tu proyecto" required></textarea>
             <input type="hidden" name="_subject" value="Nuevo contacto desde FBA Viviendas">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
@@ -655,17 +664,19 @@
     </section>
 
     <section class="location">
-        <h2>¿Cómo llegar?</h2>
+        <h2>Visita Nuestra Casa Modelo</h2>
         <p class="location-address">📍 Rincón 266, Córdoba, Argentina</p>
         <div class="map-container">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.8161234567890!2d-64.1882!3d-31.4201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28f06b4c2b7%3A0x1234567890abcdef!2sRinc%C3%B3n%20266%2C%20C%C3%B3rdoba%2C%20Argentina!5e0!3m2!1ses-419!2sar!4v1234567890123!5m2!1ses-419!2sar" 
                 allowfullscreen="" 
                 loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de FBA Viviendas en Rincón 266, Córdoba">
             </iframe>
         </div>
     </section>
+</main>
 
     <a href="https://wa.me/+5493516483433?text=Hola,%20estoy%20interesado%20en%20sus%20viviendas%20prefabricadas" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
         <svg viewBox="0 0 32 32">
@@ -674,8 +685,8 @@
     </a>
 
     <footer>
-        <p>&copy; 2025 FBA Viviendas S.A.S - Todos los derechos reservados</p>
-        <p>¡¡Lo crees, lo creas!!</p>
+        <p> FBA Viviendas S.A.S&REG; </p>
+        <p class="footer-slogan">¡¡Lo crees, lo creas!!</p>
     </footer>
 
     <script>
@@ -684,13 +695,16 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active'); 
         });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                menuToggle.classList.remove('active'); 
             });
         });
+        
     </script>
 </body>
 </html>
