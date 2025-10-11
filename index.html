@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FBA Viviendas - Tu Casa Premium Ya</title>
     <style>
+        :root {
+            --naranja: #ef9a36;
+            --verde-principal: #68992f;
+            --gris-texto: #666;
+            --blanco: #fff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -55,16 +62,18 @@
 
         .brand-name {
             font-size: 1.3rem;
-            font-weight: bold;
-            color: #68992f;
+            font-weight: 700;
+            color: var(--verde-principal);
             line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
         .brand-slogan {
             font-size: 0.75rem;
-            color: #ef9a36;
+            color: var(--naranja);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .nav-links {
@@ -97,30 +106,86 @@
             transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* Hero Section - Background Responsive y Transparente */
         .hero {
-            margin-top: 80px;
-            background: linear-gradient(135deg, #6B8E23 0%, #8BAF3E 100%);
+            position: relative; /* Para pseudo-elementos */
+            margin-top: 80px; /* Altura del header fijo */
             color: white;
             padding: 6rem 2rem;
             text-align: center;
+            min-height: 100vh; /* Full viewport en desktop */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Evita desbordes */
+        }
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/casa1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.9; /* Opacidad solo para la imagen (ajusta: 0.4-0.8) */
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Overlay opcional para mejor contraste */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Tinte semi-transparente */
+            z-index: 2;
+        }
+
+        /* Contenido encima, sin opacidad */
+        .hero > * {
+            position: relative;
+            z-index: 3;
+            opacity: 1;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejora legibilidad */
         }
 
         .hero .highlight {
             font-style: italic;
-            color: #FFD700;
+            color: var(--naranja);
+            font-size: 2.2rem;
+            display: block;
+            margin: 1.5rem 0;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            max-width: 600px;
         }
 
         .cta-button {
@@ -152,7 +217,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #6B8E23;
+            color: var(--verde-principal);
             font-weight: 300;
         }
 
@@ -163,18 +228,24 @@
         }
 
         .feature-card {
+            background: var(--blanco);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
             text-align: center;
-            padding: 2rem;
-            transition: transform 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
+            border-color: var(--naranja);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: #6B8E23;
             border-radius: 50%;
             display: flex;
@@ -182,6 +253,7 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 2rem;
+            color: white;
         }
 
         .feature-card h3 {
@@ -190,7 +262,7 @@
         }
 
         .feature-card p {
-            color: #666;
+            color: var(--gris-texto);
         }
 
         /* Gallery Section */
@@ -203,7 +275,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #6B8E23;
+            color: var(--verde-principal);
             font-weight: 300;
         }
 
@@ -265,13 +337,13 @@
         .contact h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #6B8E23;
+            color: var(--verde-principal);
             font-weight: 300;
         }
 
         .contact p {
             margin-bottom: 2rem;
-            color: #666;
+            color: var(--gris-texto);
             font-size: 1.1rem;
         }
 
@@ -308,7 +380,7 @@
             transition: background 0.3s;
         }
 
-        .contact form button:hover {
+        .contact-form button:hover {
             background: #5a7a1e;
         }
 
@@ -322,13 +394,13 @@
         .location h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #68992f;
+            color: var(--verde-principal);
             font-weight: 300;
         }
 
         .location-address {
             font-size: 1.2rem;
-            color: #666;
+            color: var(--gris-texto);
             margin-bottom: 2rem;
         }
 
@@ -399,8 +471,8 @@
             }
 
             .nav-links {
-                position: absolute;
-                top: 70px;
+                position: fixed; /* Fijo para no interferir con scroll */
+                top: 80px; /* Debajo del header */
                 left: -100%;
                 flex-direction: column;
                 background: white;
@@ -408,14 +480,25 @@
                 padding: 2rem;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 transition: left 0.3s;
+                z-index: 999;
             }
 
             .nav-links.active {
                 left: 0;
             }
 
+            /* Hero responsive */
+            .hero {
+                min-height: 70vh; /* Menos altura en mobile para no abrumar */
+                padding: 4rem 1rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero .highlight {
+                font-size: 1.2rem;
             }
 
             .hero p {
@@ -429,8 +512,42 @@
                 font-size: 2rem;
             }
 
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
             .map-container iframe {
                 height: 300px;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Media query adicional para tablets */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero {
+                min-height: 80vh;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -460,9 +577,9 @@
     </header>
 
     <section class="hero" id="inicio">
-        <h1>Tu Casa Premium Ya</h1>
+        <h1>TU CASA PREMIUM YA</h1>
         <p class="highlight">¡¡Lo crees, lo creas!!</p>
-        <p>Construimos viviendas prefabricadas de alta calidad, diseñadas para hacer realidad tus sueños</p>
+        <p>Construimos viviendas prefabricadas de alta calidad, diseñadas con los mejores materiales para hacer realidad el hogar que siempre soñaste</p>
         <a href="#contacto" class="cta-button">Solicita una Cotización</a>
     </section>
 
@@ -474,6 +591,7 @@
                 <h3>Construcción Rápida</h3>
                 <p>Entregamos tu vivienda en tiempo récord sin comprometer la calidad</p>
             </div>
+           
             <div class="feature-card">
                 <div class="feature-icon">🏆</div>
                 <h3>Calidad Premium</h3>
@@ -481,13 +599,18 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon">💰</div>
-                <h3>Precios Competitivos</h3>
-                <p>La mejor relación calidad-precio del mercado con opciones de financiamiento</p>
+                <h3>Financiación Disponible</h3>
+                <p>Opciones de pago flexibles para que tu casa sea una realidad hoy</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>Diseños Personalizados</h3>
                 <p>Adaptamos cada proyecto a tus necesidades y preferencias</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Mantenimiento Mínimo</h3>
+                <p>Construcción duradera que requiere poco mantenimiento a largo plazo</p>
             </div>
         </div>
     </section>
@@ -511,7 +634,7 @@
                 <img src="img/casa5.jpg" alt="Modelo de vivienda 5">
             </div>
             <div class="gallery-item">
-                <img src="img/casa6.jpg" alt="Modelo de vivienda 6">
+                <img src="img/casa7.jpg" alt="Modelo de vivienda 6">
             </div>
         </div>
     </section>
@@ -532,7 +655,7 @@
     </section>
 
     <section class="location">
-        <h2>¿Cómo llegar?!!!!!!</h2>
+        <h2>¿Cómo llegar?</h2>
         <p class="location-address">📍 Rincón 266, Córdoba, Argentina</p>
         <div class="map-container">
             <iframe 

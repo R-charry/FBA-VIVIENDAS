@@ -1,0 +1,84 @@
+<section class="features" id="nosotros">
+    <div class="section-header">
+        <div class="section-subtitle">Nuestras Ventajas</div>
+        <h2 class="section-title">¿Por qué elegir FBA Viviendas?</h2>
+        <p class="section-description">Transformamos tu sueño en realidad con calidad garantizada y compromiso total</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Construcción Rápida</h3>
+            <p>Entregamos tu vivienda en 60 días promedio sin sacrificar calidad</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Calidad Premium</h3>
+            <p>Materiales de primera y acabados impecables con garantía extendida</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Financiación Disponible</h3>
+            <p>Opciones de pago flexibles para que tu casa sea una realidad hoy</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Diseños Personalizados</h3>
+            <p>Adaptamos cada proyecto a tus necesidades sin cargo extra</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Mantenimiento Mínimo</h3>
+            <p>Construcción duradera que requiere poco mantenimiento a largo plazo</p>
+        </div>
+        
+    </div>
+</section>
+
+
+
+.features {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--marron);
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: var(--texto);
+}
