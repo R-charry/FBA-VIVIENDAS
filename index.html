@@ -698,8 +698,8 @@
                 <div class="gallery-item" data-title="Sumampa Santiago del Estero">
                     <img src="img/casa4.jpg" alt="Sumampa Santiago del Estero">
                 </div>
-                <div class="gallery-item" data-title="Excepteur sint occaecat cupidatat non proident, sunt in culpa.">
-                    <img src="img/casa5.jpg" alt="Modelo de vivienda Loft">
+                <div class="gallery-item" data-title="Achiras Córdoba">
+                    <img src="img/casa5.jpg" alt="Achiras Córdoba">
                 </div>
                 <div class="gallery-item" data-title="Formosa Villa Escolar">
                     <img src="img/casa7.jpg" alt="Formosa Villa Escolar">
@@ -775,20 +775,21 @@
             </div>
         </section>
 
-    <section class="contact" id="contacto">
-        <h2>Conversemos sobre tu proyecto</h2>
-        <p>Déjanos tus datos y un asesor se pondrá en contacto contigo para cotizar tu casa premium.</p>
-        <form class="contact-form" action="https://formsubmit.co/cv.fbaviviendas@gmail.com" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
-            <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-            <input type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" required>
-            <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto: metros, ubicación, etc." aria-label="Cuéntanos sobre tu proyecto" required></textarea>
-            <input type="hidden" name="_subject" value="Nuevo contacto desde FBA Viviendas">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-    </section>
+        <section class="contact" id="contacto">
+            <h2>Conversemos sobre tu proyecto</h2>
+            <p>Déjanos tus datos y un asesor se pondrá en contacto contigo para cotizar tu casa premium.</p>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" required>
+                <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto: metros, ubicación, etc." aria-label="Cuéntanos sobre tu proyecto" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            
+            <p id="formMessage" style="display:none; margin-top:1rem; color:var(--verde-principal); font-weight:600;">
+                ✅ Formulario enviado con éxito. Redirigiendo al inicio...
+            </p>
+        </section>
 
     <section class="location">
         <h2>Visita Nuestra Casa Modelo</h2>
@@ -864,7 +865,38 @@ function goToSlide(index) {
 setInterval(() => {
     moveCarousel(1);
 }, 5000);
+
+
         
     </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function(e) {
+            e.preventDefault(); // Evita el envío tradicional
+        
+            const form = e.target;
+            const formData = new FormData(form);
+        
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/ramiro.charry.analista@gmail.com", {
+                    method: "POST",
+                    body: formData
+                });
+        
+                if (response.ok) {
+                    form.reset(); // Limpia el formulario
+                    document.getElementById("formMessage").style.display = "block"; // Muestra mensaje
+                    // Redirige al inicio después de 3 segundos
+                    setTimeout(() => {
+                        window.location.href = "#inicio";
+                        document.getElementById("formMessage").style.display = "none";
+                    }, 3000);
+                } else {
+                    alert("⚠️ Hubo un problema al enviar el formulario. Intenta nuevamente.");
+                }
+            } catch (error) {
+                alert("❌ Error al conectar con el servidor. Verifica tu conexión.");
+            }
+        });
+        </script>
 </body>
 </html>
