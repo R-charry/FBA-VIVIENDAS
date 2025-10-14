@@ -7,9 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ==================================== */
-        /* 1. VARIABLES Y RESET */
-        /* ==================================== */
         :root {
             --naranja: #ef9a36; 
             --verde-principal: #68992f;
@@ -42,9 +39,6 @@
             padding: 0 2rem;
         }
 
-        /* ==================================== */
-        /* 2. HEADER Y NAVEGACIÓN */
-        /* ==================================== */
         header {
             background: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -141,10 +135,6 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* ==================================== */
-        /* 3. HERO Y CTA */
-        /* ==================================== */
-        
         .hero {
             position: relative;
             margin-top: 80px;
@@ -236,10 +226,6 @@
             background: var(--verde-hover);
         }
 
-        /* ==================================== */
-        /* 4. FEATURES Y GALLERY */
-        /* ==================================== */
-        
         h2 {
             text-align: center;
             font-size: 2.5rem;
@@ -311,7 +297,6 @@
             color: var(--gris-texto);
         }
 
-        /* Estilo para las dos secciones de galería (Modelos y Entregas) */
         .gallery, .recent-deliveries {
             background: #f9f9f9;
             padding: 4rem 2rem;
@@ -368,9 +353,110 @@
             opacity: 1;
         }
 
-        /* ==================================== */
-        /* 5. SECCIÓN CONTACTO */
-        /* ==================================== */
+        .plans-section {
+            background: #fff;
+            padding: 4rem 2rem;
+        }
+
+        .carousel-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f5f5f5;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--verde-principal);
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .carousel-button.prev {
+            left: 20px;
+        }
+
+        .carousel-button.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: var(--verde-principal);
+            width: 30px;
+            border-radius: 6px;
+        }
+
         .contact {
             max-width: 800px;
             margin: 4rem auto;
@@ -422,10 +508,6 @@
             background: var(--verde-hover);
         }
 
-
-        /* ==================================== */
-        /* 6. MAPA */
-        /* ==================================== */
         .location {
             background: #f9f9f9;
             padding: 4rem 2rem;
@@ -452,9 +534,6 @@
             border: none;
         }
 
-        /* ==================================== */
-        /* 7. WHATSAPP BUTTON */
-        /* ==================================== */
         .whatsapp-button {
             position: fixed;
             bottom: 30px;
@@ -484,9 +563,6 @@
             fill: white;
         }
 
-        /* ==================================== */
-        /* 8. FOOTER Y RESPONSIVE */
-        /* ==================================== */
         footer {
             background: #333;
             color: white;
@@ -515,13 +591,17 @@
             .hero { min-height: 70vh; padding: 4rem 1rem; }
             .hero h1 { font-size: 2.5rem; }
             .hero .slogan-secondary { font-size: 1.2rem; }
-            .features h2, .gallery h2, .contact h2, .location h2, .recent-deliveries h2 { font-size: 2rem; }
+            h2 { font-size: 2rem; }
             .features-grid { grid-template-columns: 1fr; gap: 2rem; }
             .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
             .gallery-item { height: 200px; }
             .map-container iframe { height: 300px; }
             nav { padding: 1rem; }
             .cta-button { padding: 0.8rem 2rem; font-size: 1rem; }
+            .carousel-slide { height: 400px; }
+            .carousel-button { width: 40px; height: 40px; font-size: 1.2rem; }
+            .carousel-button.prev { left: 10px; }
+            .carousel-button.next { right: 10px; }
         }
 
         @media (max-width: 1024px) and (min-width: 769px) {
@@ -545,6 +625,7 @@
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#modelos">Modelos</a></li>
                 <li><a href="#entregas">Entregas</a></li>
+                <li><a href="#planos">Planos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -554,104 +635,150 @@
             </div>
         </nav>
     </header>
-<main>
-    <section class="hero" id="inicio">
-        <h1>Construimos tu Vivienda Prefabricada de Alta Calidad en Córdoba.</h1>
-        <p class="slogan-secondary">¡¡Lo crees, lo creas!!</p>
-        <p>Diseños exclusivos, construcción eficiente y opciones de financiación flexibles. Empieza a construir tu futuro hoy.</p>
-        <a href="#contacto" class="cta-button">Solicita una Cotización</a>
-    </section>
 
-    <section class="features" id="nosotros">
-        <h2>Nuestra Promesa FBA</h2>
-        <p class="intro-text">
-            En FBA Viviendas, nos especializamos en hacer realidad el sueño de la casa propia con la máxima calidad y eficiencia. Con años de experiencia en Córdoba, garantizamos procesos transparentes y resultados que superan las expectativas.
-        </p>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div> 
-                <h3>Construcción Rápida</h3>
-                <p>Entregamos tu vivienda en tiempo récord sin comprometer la calidad</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">★</div> 
-                <h3>Calidad Premium</h3>
-                <p>Materiales de primera calidad y acabados impecables en cada detalle</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💸</div> 
-                <h3>Financiación Disponible</h3>
-                <p>Opciones de pago flexibles para que tu casa sea una realidad hoy</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">✏️</div> 
-                <h3>Diseños Personalizados</h3>
-                <p>Adaptamos cada proyecto a tus necesidades y preferencias</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div> 
-                <h3>Larga Durabilidad</h3>
-                <p>Construcción robusta que minimiza el mantenimiento a largo plazo</p>
-            </div>
-             <div class="feature-card">
-                <div class="feature-icon">🌱</div> 
-                <h3>Eficiencia Energética</h3>
-                <p>Soluciones constructivas que ofrecen gran eficiencia y sostenibilidad</p>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section class="hero" id="inicio">
+            <h1>Construimos tu Vivienda Prefabricada de Alta Calidad en Argentina.</h1>
+            <p class="slogan-secondary">¡¡Lo crees, lo creas!!</p>
+            <p>Diseños exclusivos, construcción eficiente y opciones de financiación flexibles. Empieza a construir tu futuro hoy.</p>
+            <a href="#contacto" class="cta-button">Solicita una Cotización</a>
+        </section>
 
-    <section class="gallery" id="modelos">
-        <h2>Galería de Modelos Exclusivos</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-                <img src="img/casa1.jpg" alt="Modelo de vivienda Estilo">
+        <section class="features" id="nosotros">
+            <h2>Nuestra Promesa FBA</h2>
+            <p class="intro-text">
+                En FBA Viviendas, nos especializamos en hacer realidad el sueño de la casa propia con la máxima calidad y eficiencia. Con años de experiencia en Córdoba, garantizamos procesos transparentes y resultados que superan las expectativas.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div> 
+                    <h3>Construcción Rápida</h3>
+                    <p>Entregamos tu vivienda en tiempo récord sin comprometer la calidad</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">★</div> 
+                    <h3>Calidad Premium</h3>
+                    <p>Materiales de primera calidad y acabados impecables en cada detalle</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div> 
+                    <h3>Financiación Disponible</h3>
+                    <p>Opciones de pago flexibles para que tu casa sea una realidad hoy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div> 
+                    <h3>Diseños Personalizados</h3>
+                    <p>Adaptamos cada proyecto a tus necesidades y preferencias</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div> 
+                    <h3>Larga Durabilidad</h3>
+                    <p>Construcción robusta que minimiza el mantenimiento a largo plazo</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div> 
+                    <h3>Eficiencia Energética</h3>
+                    <p>Soluciones constructivas que ofrecen gran eficiencia y sostenibilidad</p>
+                </div>
             </div>
-            <div class="gallery-item" data-title="Sed do eiusmod tempor incididunt ut labore et dolore magna.">
-                <img src="img/casa2.jpg" alt="Modelo de vivienda Familiar">
-            </div>
-            <div class="gallery-item" data-title="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.">
-                <img src="img/casa3.jpg" alt="Modelo de vivienda Chalet">
-            </div>
-            <div class="gallery-item" data-title="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.">
-                <img src="img/casa4.jpg" alt="Modelo de vivienda Minimal">
-            </div>
-            <div class="gallery-item" data-title="Excepteur sint occaecat cupidatat non proident, sunt in culpa.">
-                <img src="img/casa5.jpg" alt="Modelo de vivienda Loft">
-            </div>
-            <div class="gallery-item" data-title="Qui officia deserunt mollit anim id est laborum.">
-                <img src="img/casa7.jpg" alt="Modelo de vivienda Patagonia">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="recent-deliveries" id="entregas">
-        <h2>Entregas Recientes</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-title="Entrega en Villa Allende (Marzo 2025).">
-                <img src="img/entrega1.jpg" alt="Entrega de vivienda en Villa Allende">
+        <section class="gallery" id="modelos">
+            <h2>Galería de Modelos Exclusivos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-title="Embalse Córdoba">
+                    <img src="img/casa8.jpg" alt="Embalse Córdoba">
+                </div>
+                <div class="gallery-item" data-title="Gral. Levalle Córdoba">
+                    <img src="img/casa2.jpg" alt="Gral. Levalle Córdoba">
+                </div>
+                <div class="gallery-item" data-title="Serrano Córdoba">
+                    <img src="img/casa3.jpg" alt="Serrano Córdoba">
+                </div>
+                <div class="gallery-item" data-title="Sumampa Santiago del Estero">
+                    <img src="img/casa4.jpg" alt="Sumampa Santiago del Estero">
+                </div>
+                <div class="gallery-item" data-title="Excepteur sint occaecat cupidatat non proident, sunt in culpa.">
+                    <img src="img/casa5.jpg" alt="Modelo de vivienda Loft">
+                </div>
+                <div class="gallery-item" data-title="Formosa Villa Escolar">
+                    <img src="img/casa7.jpg" alt="Formosa Villa Escolar">
+                </div>
             </div>
-            <div class="gallery-item" data-title="Finalizada en Carlos Paz (Febrero 2025).">
-                <img src="img/entrega2.jpg" alt="Entrega de vivienda en Carlos Paz">
+        </section>
+
+        <section class="recent-deliveries" id="entregas">
+            <h2>Entregas Recientes</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-title="Gral. Levalle Córdoba Familia Coralio">
+                    <img src="img/entrega1.jpg" alt="Gral. Levalle Córdoba Familia Coralio">
+                </div>
+                <div class="gallery-item" data-title="Serrano Cordoba Familia Carena">
+                    <img src="img/entrega2.jpg" alt="Serrano Cordoba Familia Carena">
+                </div>
+                <div class="gallery-item" data-title="Gral. Levalle Cordoba Familia Bolaños">
+                    <img src="img/entrega3.jpg" alt="Gral. Levalle Cordoba Familia Bolaños">
+                </div>
+                <div class="gallery-item" data-title="Achiras Córdoba Familia Eracci">
+                    <img src="img/entrega4.jpg" alt="Achiras Córdoba Familia Eracci">
+                </div>
+                <div class="gallery-item" data-title="Gral. Levalle Córdoba Familia Fenoglio">
+                    <img src="img/entrega5.jpg" alt="Gral. Levalle Córdoba Familia Fenoglio">
+                </div>
+                <div class="gallery-item" data-title="Serrano Córdoba Familia Veronesi.">
+                    <img src="img/entrega6.jpg" alt="Serrano Córdoba Familia Veronesi">
+                </div>
             </div>
-            <div class="gallery-item" data-title="Proyecto de 100m² en Alta Gracia.">
-                <img src="img/entrega3.jpg" alt="Entrega de vivienda en Alta Gracia">
+        </section>
+
+        <section class="plans-section" id="planos">
+            <h2>Planos a Modo Ilustrativo</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <div class="carousel-slide">
+                        <img src="img/planos1.jpg" alt="Plano 1">
+                        <div class="carousel-caption">
+                            <h3>Plano de 1 Dormitorio</h3>
+                            <p>Diseño moderno de 1 dormitorio</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/plano2.jpg" alt="Plano 2">
+                        <div class="carousel-caption">
+                            <h3>Plano de 2 Dormitorios</h3>
+                            <p>Diseño moderno de 2 Dormitorios</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/plano3.jpg" alt="Plano 3">
+                        <div class="carousel-caption">
+                            <h3>Plano de 3 Dormitorios</h3>
+                            <p>Diseño moderno de 3 Dormitorios</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/planos4.jpg" alt="Plano 4">
+                        <div class="carousel-caption">
+                            <h3>Plano de 4 Dormitorios</h3>
+                            <p>Diseño moderno de 4 Dormitorios</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button prev" onclick="moveCarousel(-1)" aria-label="Anterior">‹</button>
+                <button class="carousel-button next" onclick="moveCarousel(1)" aria-label="Siguiente">›</button>
             </div>
-            <div class="gallery-item" data-title="Casa Modular en La Calera.">
-                <img src="img/entrega4.jpg" alt="Entrega de vivienda en La Calera">
+            <div class="carousel-indicators">
+                <button class="carousel-indicator active" onclick="goToSlide(0)" aria-label="Ir a plano 1"></button>
+                <button class="carousel-indicator" onclick="goToSlide(1)" aria-label="Ir a plano 2"></button>
+                <button class="carousel-indicator" onclick="goToSlide(2)" aria-label="Ir a plano 3"></button>
+                <button class="carousel-indicator" onclick="goToSlide(3)" aria-label="Ir a plano 4"></button>
             </div>
-            <div class="gallery-item" data-title="Vivienda Premium en Mendiolaza.">
-                <img src="img/entrega5.jpg" alt="Entrega de vivienda en Mendiolaza">
-            </div>
-           
-        </div>
-    </section>
+        </section>
 
     <section class="contact" id="contacto">
         <h2>Conversemos sobre tu proyecto</h2>
         <p>Déjanos tus datos y un asesor se pondrá en contacto contigo para cotizar tu casa premium.</p>
-        <form class="contact-form" action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/cv.fbaviviendas@gmail.com" method="POST">
             <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
             <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
             <input type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" required>
@@ -704,6 +831,39 @@
                 menuToggle.classList.remove('active'); 
             });
         });
+
+        // Variables del carrusel
+let currentSlide = 0;
+const totalSlides = 4;
+const carouselWrapper = document.getElementById('carouselWrapper');
+const indicators = document.querySelectorAll('.carousel-indicator');
+
+// Función para actualizar el carrusel
+function updateCarousel() {
+    carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+    });
+}
+
+// Función para mover el carrusel (botones anterior/siguiente)
+function moveCarousel(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+    if (currentSlide >= totalSlides) currentSlide = 0;
+    updateCarousel();
+}
+
+// Función para ir a un slide específico (indicadores)
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+}
+
+// Auto-avance del carrusel cada 5 segundos
+setInterval(() => {
+    moveCarousel(1);
+}, 5000);
         
     </script>
 </body>
